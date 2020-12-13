@@ -1,5 +1,5 @@
 # Flicky's Flock
-Flicky's Flock is a 12-player Sonic the Hedgehog themed Flappy Bird clone for the Sega Saturn. Requires two [6 Player Adaptors](https://segaretro.org/Saturn_6_Player_Adaptor) for full twelve player support. Requires a modded Saturn or another method to get code running on actual hardware. Build the code with joengine or grab an ISO from [releases](https://github.com/slinga-homebrew/Flickys-Flock/releases). Note: The release ISO does not contain a sound track. You must supply your own. Suggestions are provided. 
+Flicky's Flock is a 12-player Sonic the Hedgehog themed Flappy Bird clone for the Sega Saturn. Requires two [6 Player Adaptors](https://segaretro.org/Saturn_6_Player_Adaptor) for full twelve player support. Requires a modded Saturn or another method to get code running on actual hardware. Build the code with Jo Engine or grab an ISO from [releases](https://github.com/slinga-homebrew/Flickys-Flock/releases). Note: The release ISO does not contain a sound track. You must supply your own. Suggestions are provided. 
 
 The resolution of the game has been changed to support wide screen televisions:
 - Use the zoom feature (not 16:9) in your television
@@ -51,17 +51,20 @@ You must supply your own music tracks when burning the ISO. Here are some recomm
 3) Track 3 - gameplay music
 4) Track 4 - game over music
 
+## Burning
+On Linux I was able to burn the ISO/CUE + WAV with: cdrdao write --force game.cue. 
+
 ## Issues
 - Slow startup time 
 - Sound track not included
 - Not as crazy as [Twelve Snakes](https://github.com/slinga-homebrew/Twelve-Snakes)
 
 ## Building
-Requires joengine to build. Checkout source code folder to your joengine "Samples" directory and run "./compile.sh". 
+Requires Jo Engine to build. Checkout source code folder to your Jo Engine "Projects" directory and run "./compile.sh". 
 
 ## Credits
 Thank you to [Ponut](https://github.com/ponut64) for performance and PCM help 
 Thank you to [Emerald Nova](www.emeraldnova.com) for organizing the Saturn Dev contest
 [SegaXtreme](http://www.segaxtreme.net/) - The best Sega Saturn development forum on the web. Thank you for all the advice from all the great posters on the forum.  
 [Sega Saturn Multiplayer Task Force](http://vieille.merde.free.fr/) - Other great Sega Saturn games with source code  
-[joengine](https://github.com/johannes-fetz/joengine) - Sega Saturn dev environment  
+[Jo Engine](https://github.com/johannes-fetz/joengine) - Sega Saturn dev environment  
