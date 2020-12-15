@@ -15,8 +15,20 @@ Flicky's Flock was my entry to the [Sega Saturn 26th Anniversary Game Competitio
 ![Solo](screenshots/solo.png)
 ![Score](screenshots/score.png)
 
+## How to Play
+* On the title screen you can select the number of lives per player (1, 3, 5, 9, or infinite) as well as the starting position of the Flickies (fixed or random). During gameplay the order of the Flickies do not change. 
+* Once the game starts all twelve birds will spawn. Press A, B, or C to start flapping your character
+* You can change your Flicky by pressing Left or Right Trigger while alive. 
+* You score 1 point for each pipe you traverse
+* If you touch the ground or a pipe your character dies. Dying loses you 1 point
+* To respawn after dying simply flap again (A, B, or C button). You can keep respawning until you run out of lives
+* The game ends when a player scores 100 points or if no player is playing for 5 seconds
+* The game starts off easy but gets harder every 10 points scored
+
 ## Power-Ups/Power-Downs
-![Power-Ups](screenshots/powerups.png)
+![Power-Ups](screenshots/powerups.png)  
+There are five power-ups/power-downs that spawn randomly. Going after and acquiring them is a risk/reward trade-off. 
+
 * Flicky - extra life
 * Robotnik - instant death  
 * Lightning - all players shrink and have floatier jumps for 10 seconds  
@@ -28,7 +40,7 @@ Only player one can:
 - interact with the menus  
 - pause/display the score with the Start button  
 - clear scores with the Z button (at the pause screen)  
-- press ABC+Start to reset the game  
+- press ABC + Start to reset the game  
 
 ## Score
 When player one hit starts or the game ends, the score is displayed. The fields mean the following:
@@ -63,8 +75,8 @@ On Linux I was able to burn the ISO/CUE + WAV with: cdrdao write --force game.cu
 Requires Jo Engine to build. Checkout source code folder to your Jo Engine "Projects" directory and run "./compile.sh". 
 
 ## Credits
-Thank you to [Ponut](https://github.com/ponut64) for performance and PCM help 
-Thank you to [Emerald Nova](www.emeraldnova.com) for organizing the Saturn Dev contest
+Thank you to [Ponut](https://github.com/ponut64) for performance and PCM help  
+Thank you to [Emerald Nova](www.emeraldnova.com) for organizing the Saturn Dev contest  
 [SegaXtreme](http://www.segaxtreme.net/) - The best Sega Saturn development forum on the web. Thank you for all the advice from all the great posters on the forum.  
 [Sega Saturn Multiplayer Task Force](http://vieille.merde.free.fr/) - Other great Sega Saturn games with source code  
 [Jo Engine](https://github.com/johannes-fetz/joengine) - Sega Saturn dev environment  
