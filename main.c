@@ -96,7 +96,7 @@ void jo_main(void)
     jo_core_add_callback(gameOver_draw);
 
     // debug info
-    jo_core_add_callback(debugInfo);
+    //jo_core_add_callback(debugInfo);
 
     g_Game.gameState = GAMESTATE_SSMTF_LOGO;
 
