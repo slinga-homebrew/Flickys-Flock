@@ -35,7 +35,6 @@
  */
 
 #include "main.h"
-#include "my_jo.h"
 
 //
 // globals
@@ -97,7 +96,7 @@ void jo_main(void)
     jo_core_add_callback(gameOver_draw);
 
     // debug info
-    // jo_core_add_callback(debugInfo);
+    jo_core_add_callback(debugInfo);
 
     g_Game.gameState = GAMESTATE_SSMTF_LOGO;
 
@@ -122,10 +121,11 @@ void debugInfo(void)
 
         //
 
-
+    */
     jo_fixed_point_time();
     slPrintFX(delta_time, slLocate(3,4));
 
+    /*
     jo_printf(3, 2, "x: %d y: %d z: %d t: %d    ", g_PowerUps[0].x_pos, g_PowerUps[0].y_pos, g_PowerUps[0].z_pos, g_PowerUps[0].type);
     jo_printf(3, 3, "sg: %d l: %d ss: %d        ", g_Players[0].reverseGravityTimer, g_Players[0].lightningTimer, g_Players[0].stoneSneakersTimer);
 
@@ -1487,9 +1487,16 @@ void loadSpriteAssets()
 void loadPCMAssets(void)
 {
     jo_audio_load_pcm("DEATH.PCM", JoSoundMono8Bit, &g_Assets.deathPCM);
+    g_Assets.deathPCM.sample_rate = 27086;
+
     jo_audio_load_pcm("GRAVITY.PCM", JoSoundMono8Bit, &g_Assets.reverseGravityPCM);
+    g_Assets.reverseGravityPCM.sample_rate = 27086;
+
     jo_audio_load_pcm("LIGHT.PCM", JoSoundMono8Bit, &g_Assets.lightningPCM);
+    g_Assets.lightningPCM.sample_rate = 27086;
+
     jo_audio_load_pcm("STONE.PCM", JoSoundMono8Bit, &g_Assets.stoneSneakersPCM);
+    g_Assets.stoneSneakersPCM.sample_rate = 27086;
 
     return;
 }
@@ -1673,7 +1680,7 @@ void killPlayer(int playerID)
 {
     g_Players[playerID].state = FLICKYSTATE_DYING;
     g_Players[playerID].frameTimer = FLICKY_DEATH_FRAME_TIMER;
-    my_jo_audio_play_sound(&g_Assets.deathPCM);
+    jo_audio_play_sound(&g_Assets.deathPCM);
     return;
 }
 
@@ -2254,7 +2261,7 @@ void applyPowerUp(PFLICKY player, PPOWERUP powerup)
         }
         case POWERUP_REVERSE_GRAVITY:
         {
-            my_jo_audio_play_sound(&g_Assets.reverseGravityPCM);
+            jo_audio_play_sound(&g_Assets.reverseGravityPCM);
 
             // apply stone sneakers to all players
             for(int i = 0; i < MAX_PLAYERS; i++)
@@ -2273,7 +2280,7 @@ void applyPowerUp(PFLICKY player, PPOWERUP powerup)
         }
         case POWERUP_LIGHTNING:
         {
-            my_jo_audio_play_sound(&g_Assets.lightningPCM);
+            jo_audio_play_sound(&g_Assets.lightningPCM);
 
             // apply stone sneakers to all players
             for(int i = 0; i < MAX_PLAYERS; i++)
@@ -2294,7 +2301,7 @@ void applyPowerUp(PFLICKY player, PPOWERUP powerup)
         }
         case POWERUP_STONE_SNEAKERS:
         {
-            my_jo_audio_play_sound(&g_Assets.stoneSneakersPCM);
+            jo_audio_play_sound(&g_Assets.stoneSneakersPCM);
 
             // apply stone sneakers to all players
             for(int i = 0; i < MAX_PLAYERS; i++)
