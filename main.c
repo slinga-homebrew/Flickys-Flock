@@ -1407,46 +1407,53 @@ void loadSpriteAssets()
         powerUpSprites[i].width = 16;
     }
 
+    //
+    // Performance hack: instead of repeatedly switching and unswitching dirs in jo_sprite_add_tga()
+    // do it only once here. Otherwise the TEX dir is repeatedly loaded and unloaded which is
+    // very slow. This increases boot time by around ~4 seconds. Credit to ReyeMe.
+    //
+    jo_fs_cd("TEX");
+
     // SSMTF logo
-    g_Assets.SSMTF1Sprite = jo_sprite_add_tga("TEX", "SSMTF1.TGA", JO_COLOR_Transparent);
-    g_Assets.SSMTF2Sprite = jo_sprite_add_tga("TEX", "SSMTF2.TGA", JO_COLOR_Transparent);
-    g_Assets.SSMTF3Sprite = jo_sprite_add_tga("TEX", "SSMTF3.TGA", JO_COLOR_Transparent);
-    g_Assets.SSMTF4Sprite = jo_sprite_add_tga("TEX", "SSMTF4.TGA", JO_COLOR_Transparent);
+    g_Assets.SSMTF1Sprite = jo_sprite_add_tga(NULL, "SSMTF1.TGA", JO_COLOR_Transparent);
+    g_Assets.SSMTF2Sprite = jo_sprite_add_tga(NULL, "SSMTF2.TGA", JO_COLOR_Transparent);
+    g_Assets.SSMTF3Sprite = jo_sprite_add_tga(NULL, "SSMTF3.TGA", JO_COLOR_Transparent);
+    g_Assets.SSMTF4Sprite = jo_sprite_add_tga(NULL, "SSMTF4.TGA", JO_COLOR_Transparent);
 
     // title screen
-    g_Assets.titleSprite = jo_sprite_add_tga("TEX", "TITLE.TGA", JO_COLOR_Transparent);
-    g_Assets.livesSprite = jo_sprite_add_tga("TEX", "LIVES.TGA", JO_COLOR_Transparent);
-    g_Assets.livesInfSprite = jo_sprite_add_tga("TEX", "LIVES0.TGA", JO_COLOR_Transparent);
-    g_Assets.lives1Sprite = jo_sprite_add_tga("TEX", "LIVES1.TGA", JO_COLOR_Transparent);
-    g_Assets.lives3Sprite = jo_sprite_add_tga("TEX", "LIVES3.TGA", JO_COLOR_Transparent);
-    g_Assets.lives5Sprite = jo_sprite_add_tga("TEX", "LIVES5.TGA", JO_COLOR_Transparent);
-    g_Assets.lives9Sprite = jo_sprite_add_tga("TEX", "LIVES9.TGA", JO_COLOR_Transparent);
-    g_Assets.startSprite = jo_sprite_add_tga("TEX", "START.TGA", JO_COLOR_Transparent);
-    g_Assets.positionSprite = jo_sprite_add_tga("TEX", "POS.TGA", JO_COLOR_Transparent);
-    g_Assets.randomSprite = jo_sprite_add_tga("TEX", "RAND.TGA", JO_COLOR_Transparent);
-    g_Assets.fixedSprite = jo_sprite_add_tga("TEX", "FIXED.TGA", JO_COLOR_Transparent);
+    g_Assets.titleSprite = jo_sprite_add_tga(NULL, "TITLE.TGA", JO_COLOR_Transparent);
+    g_Assets.livesSprite = jo_sprite_add_tga(NULL, "LIVES.TGA", JO_COLOR_Transparent);
+    g_Assets.livesInfSprite = jo_sprite_add_tga(NULL, "LIVES0.TGA", JO_COLOR_Transparent);
+    g_Assets.lives1Sprite = jo_sprite_add_tga(NULL, "LIVES1.TGA", JO_COLOR_Transparent);
+    g_Assets.lives3Sprite = jo_sprite_add_tga(NULL, "LIVES3.TGA", JO_COLOR_Transparent);
+    g_Assets.lives5Sprite = jo_sprite_add_tga(NULL, "LIVES5.TGA", JO_COLOR_Transparent);
+    g_Assets.lives9Sprite = jo_sprite_add_tga(NULL, "LIVES9.TGA", JO_COLOR_Transparent);
+    g_Assets.startSprite = jo_sprite_add_tga(NULL, "START.TGA", JO_COLOR_Transparent);
+    g_Assets.positionSprite = jo_sprite_add_tga(NULL, "POS.TGA", JO_COLOR_Transparent);
+    g_Assets.randomSprite = jo_sprite_add_tga(NULL, "RAND.TGA", JO_COLOR_Transparent);
+    g_Assets.fixedSprite = jo_sprite_add_tga(NULL, "FIXED.TGA", JO_COLOR_Transparent);
 
     // background
     g_Assets.background.data = NULL;
-    jo_tga_loader(&g_Assets.background, "TEX", "BG.TGA", JO_COLOR_Transparent);
+    jo_tga_loader(&g_Assets.background, NULL, "BG.TGA", JO_COLOR_Transparent);
 
     // gameplay sprites
-    g_Assets.floorSprite = jo_sprite_add_tga("TEX", "FLOOR.TGA", JO_COLOR_Transparent);
-    g_Assets.pipeSprite = jo_sprite_add_tga("TEX", "PIPE.TGA", JO_COLOR_Transparent);
-    g_Assets.pipeTopSprite = jo_sprite_add_tga("TEX", "PIPETOP.TGA", JO_COLOR_Transparent);
+    g_Assets.floorSprite = jo_sprite_add_tga(NULL, "FLOOR.TGA", JO_COLOR_Transparent);
+    g_Assets.pipeSprite = jo_sprite_add_tga(NULL, "PIPE.TGA", JO_COLOR_Transparent);
+    g_Assets.pipeTopSprite = jo_sprite_add_tga(NULL, "PIPETOP.TGA", JO_COLOR_Transparent);
 
     // pause/game over sprites
-    g_Assets.seperatorHorizontalSprite = jo_sprite_add_tga("TEX", "SEPH.TGA", JO_COLOR_Transparent);
-    g_Assets.seperatorVerticalSprite = jo_sprite_add_tga("TEX", "SEPV.TGA", JO_COLOR_Transparent);
-    g_Assets.gameOverSprite = jo_sprite_add_tga("TEX", "GAMEO.TGA", JO_COLOR_Transparent);
-    g_Assets.pauseSprite = jo_sprite_add_tga("TEX", "PAUSE.TGA", JO_COLOR_Transparent);
-    g_Assets.retrySprite = jo_sprite_add_tga("TEX", "GRETR.TGA", JO_COLOR_Transparent);
-    g_Assets.exitSprite = jo_sprite_add_tga("TEX", "GEXIT.TGA", JO_COLOR_Transparent);
-    g_Assets.continueSprite = jo_sprite_add_tga("TEX", "GCONT.TGA", JO_COLOR_Transparent);
+    g_Assets.seperatorHorizontalSprite = jo_sprite_add_tga(NULL, "SEPH.TGA", JO_COLOR_Transparent);
+    g_Assets.seperatorVerticalSprite = jo_sprite_add_tga(NULL, "SEPV.TGA", JO_COLOR_Transparent);
+    g_Assets.gameOverSprite = jo_sprite_add_tga(NULL, "GAMEO.TGA", JO_COLOR_Transparent);
+    g_Assets.pauseSprite = jo_sprite_add_tga(NULL, "PAUSE.TGA", JO_COLOR_Transparent);
+    g_Assets.retrySprite = jo_sprite_add_tga(NULL, "GRETR.TGA", JO_COLOR_Transparent);
+    g_Assets.exitSprite = jo_sprite_add_tga(NULL, "GEXIT.TGA", JO_COLOR_Transparent);
+    g_Assets.continueSprite = jo_sprite_add_tga(NULL, "GCONT.TGA", JO_COLOR_Transparent);
 
     // score and points digits 0-9
-    g_Assets.largeDigitSprites[0] = jo_sprite_add_tga_tileset("TEX", "SDIGIT.TGA", JO_COLOR_Transparent, scoreDigits, COUNTOF(scoreDigits));
-    g_Assets.smallDigitSprites[0] = jo_sprite_add_tga_tileset("TEX", "PDIGIT.TGA", JO_COLOR_Transparent, pointsDigits, COUNTOF(pointsDigits));
+    g_Assets.largeDigitSprites[0] = jo_sprite_add_tga_tileset(NULL, "SDIGIT.TGA", JO_COLOR_Transparent, scoreDigits, COUNTOF(scoreDigits));
+    g_Assets.smallDigitSprites[0] = jo_sprite_add_tga_tileset(NULL, "PDIGIT.TGA", JO_COLOR_Transparent, pointsDigits, COUNTOF(pointsDigits));
 
     for(int i = 0; i < NUM_DIGITS; i++)
     {
@@ -1455,14 +1462,14 @@ void loadSpriteAssets()
     }
 
     // table heading letters
-    g_Assets.tableCSprite = jo_sprite_add_tga_tileset("TEX", "TABLEA.TGA", JO_COLOR_Transparent, tableLetters, COUNTOF(tableLetters));
+    g_Assets.tableCSprite = jo_sprite_add_tga_tileset(NULL, "TABLEA.TGA", JO_COLOR_Transparent, tableLetters, COUNTOF(tableLetters));
     g_Assets.tableDSprite = g_Assets.tableCSprite + 1;
     g_Assets.tablePSprite = g_Assets.tableCSprite + 2;
     g_Assets.tableRSprite = g_Assets.tableCSprite + 3;
     g_Assets.tableSSprite = g_Assets.tableCSprite + 4;
 
     // player sprites
-    g_FlickySprites[0].death = jo_sprite_add_tga_tileset("TEX", "FLICKY.TGA", JO_COLOR_Transparent, flickieSprites, COUNTOF(flickieSprites));
+    g_FlickySprites[0].death = jo_sprite_add_tga_tileset(NULL, "FLICKY.TGA", JO_COLOR_Transparent, flickieSprites, COUNTOF(flickieSprites));
 
     for(int i = 0; i < MAX_FLICKY_SPRITES; i++)
     {
@@ -1473,12 +1480,15 @@ void loadSpriteAssets()
     }
 
     // power-up sprites
-    g_Assets.powerUpSprites[0] = jo_sprite_add_tga_tileset("TEX", "POWERUPS.TGA", JO_COLOR_Transparent, powerUpSprites, COUNTOF(powerUpSprites));
+    g_Assets.powerUpSprites[0] = jo_sprite_add_tga_tileset(NULL, "POWERUPS.TGA", JO_COLOR_Transparent, powerUpSprites, COUNTOF(powerUpSprites));
 
     for(int i = 0; i < NUM_POWER_UPS; i++)
     {
         g_Assets.powerUpSprites[i] = g_Assets.powerUpSprites[0] + i;
     }
+
+    // back to root dir
+    jo_fs_cd("..");
 
     return;
 }

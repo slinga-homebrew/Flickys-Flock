@@ -37,7 +37,7 @@
 #include <jo/jo.h>
 #include "STRING.H"
 
-#define VERSION             "v1.0.0"
+#define VERSION             "v1.0.1"
 
 #define MAX_PLAYERS         12
 #define MAX_FLICKY_SPRITES  12
