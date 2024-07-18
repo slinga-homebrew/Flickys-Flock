@@ -15,6 +15,10 @@ Flicky's Flock was my entry to the [Sega Saturn 26th Anniversary Game Competitio
 ![Solo](screenshots/solo.png)
 ![Score](screenshots/score.png)
 
+## Videos
+* ![Razor & Zenon Sonic Videos](https://www.youtube.com/watch?v=rHCEwnGYncY)
+* ![Sega Pirate Channel](https://www.youtube.com/watch?v=WbvJkOMGJsg)
+
 ## How to Play
 * On the title screen you can select the number of lives per player (1, 3, 5, 9, or infinite) as well as the starting position of the Flickies (fixed or random). During gameplay the order of the Flickies do not change. 
 * Once the game starts all twelve birds will spawn. Press A, B, or C to start flapping your character
